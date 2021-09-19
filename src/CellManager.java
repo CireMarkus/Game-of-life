@@ -15,9 +15,19 @@ public class CellManager{
 
     //Updates the grid for the next generation of cells.
     public void nextGeneration() {
-        //TODO
+        //TODO: complete the next generation function
     }
 
+    //Checks the cells and determines what it's new state will be
+    void newState(Cell a, int numNeighbors){
+        //TODO: complete next state function. 
+    }
+    
+    //Checks to see how many neighbors a cell has
+    int neighbors(int row, int column){
+        //TODO:: check to see how many neighbors the cell has.
+        return 0;
+    }
 
     //Getters 
     public int getGridHeight(){
