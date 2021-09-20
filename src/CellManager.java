@@ -23,10 +23,29 @@ public class CellManager{
         //TODO: complete next state function. 
     }
     
-    //Checks to see how many neighbors a cell has
+    //Checks to see how many live neighbors a cell has
     int neighbors(int row, int column){
-        //TODO:: check to see how many neighbors the cell has.
-        return 0;
+        int liveNeighbors = 0;
+        
+        //The top row
+        
+        //top row if everything is normal
+        if(grid[row-1][column-1].getState()){
+            liveNeighbors++;
+        }
+        if(grid[row-1][column].getState()){
+            liveNeighbors++;
+        }
+        if(grid[row-1][column+1].getState()){
+            liveNeighbors++;
+        }
+
+        //The middle row
+
+        //The bottom row
+
+
+        return liveNeighbors;
     }
 
     //Getters 
@@ -39,6 +58,8 @@ public class CellManager{
     }
     
     public CellManager(int gridHeight, int gridWidth){
-
+        this.gridHeight = gridHeight; 
+        this.gridWidth = gridWidth;
+        populateGrid();
     }
 }
