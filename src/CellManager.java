@@ -29,16 +29,6 @@ public class CellManager{
         
         //The top row
         
-        //top row if everything is normal
-        if(grid[row-1][column-1].getState()){
-            liveNeighbors++;
-        }
-        if(grid[row-1][column].getState()){
-            liveNeighbors++;
-        }
-        if(grid[row-1][column+1].getState()){
-            liveNeighbors++;
-        }
 
         //The middle row
 
