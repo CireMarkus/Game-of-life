@@ -20,11 +20,6 @@ public class CellManager{
         //TODO: complete the next generation function
     }
 
-    //Checks the cells and determines what it's new state will be
-    void newState(Cell a, int numNeighbors){
-        
-    }
-    
     //Checks to see how many live neighbors a cell has
     int neighbors(int row, int column){
         int liveNeighbors = 0;
