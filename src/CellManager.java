@@ -1,3 +1,5 @@
+
+
 public class CellManager{
     private int gridHeight = 0;  //Number of rows int he grid
     private int gridWidth = 0; //Number of columns in the grid
@@ -28,13 +30,13 @@ public class CellManager{
         int liveNeighbors = 0;
         
         //The top row
-        //checks grid[row-1][column]
+        //checks grid[i-1][j]
         try {
             if(this.grid[row-1][column].getState()){
                 liveNeighbors++;
             }
 
-            //checks grid[row-1][column-1]
+            //checks grid[i-1][j-1]
             try {
                 if(this.grid[row-1][column-1].getState())
                     liveNeighbors++;
@@ -43,7 +45,7 @@ public class CellManager{
                     liveNeighbors++;
             }
 
-            //check grid[row-1][column+1]
+            //check grid[i-1][j+1]
             try {
                 if(this.grid[row-1][column+1].getState())
                     liveNeighbors++;
@@ -53,19 +55,90 @@ public class CellManager{
             }
 
         } catch (ArrayIndexOutOfBoundsException e) {
+            //grid[i-1][j]
             if(this.grid[gridHeight-1][column].getState())
                 liveNeighbors++;
+            
+            //grid[i-1][j-1]
+            try {
+                if(this.grid[gridHeight-1][column-1].getState())
+                    liveNeighbors++;
+            } catch (ArrayIndexOutOfBoundsException f) {
+                if(this.grid[gridHeight-1][gridWidth-1].getState())
+                    liveNeighbors++;
+            }
+            //grid[i-1][j+1]
+            try {
+                if(this.grid[gridHeight-1][column+1].getState())
+                    liveNeighbors++;
+            } catch (ArrayIndexOutOfBoundsException f) {
+                if(this.grid[gridHeight-1][0].getState())
+                    liveNeighbors++;
+            }
         }
 
         //The middle row
+        //grid[i][j-1]
         try {
-            
+            if(this.grid[row][column-1].getState())
+                liveNeighbors++;
         } catch (ArrayIndexOutOfBoundsException e) {
-            //TODO: handle exception
+            if(this.grid[row][gridWidth-1].getState())
+                liveNeighbors++;
+        }
+
+        //grid[i][j+1]
+        try {
+            if(this.grid[row][column+1].getState())
+                liveNeighbors++;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            if(this.grid[row][0].getState())
+                liveNeighbors++;
         }
 
         //The bottom row
+        //grid[i+1][j]
+        try {
+            if(grid[row+1][column].getState())
+                liveNeighbors++;
+            //grid[i+1][j-1]
+            try {
+                if(grid[row+1][column-1].getState())
+                    liveNeighbors++;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                if(grid[row+1][gridWidth-1].getState())
+                    liveNeighbors++;
+            }
+            //grid[i+1][j+1]
+            try {
+                if(grid[row+1][column+1].getState())
+                    liveNeighbors++;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                if(grid[row+1][0].getState())
+                    liveNeighbors++;
+            }
 
+        } catch (ArrayIndexOutOfBoundsException e) {
+            //grid[i+1][j]
+            if(grid[0][column].getState())
+                liveNeighbors++;
+            //grid[i+1][j-1]
+            try {
+                if(grid[0][column-1].getState())
+                    liveNeighbors++;
+            } catch (ArrayIndexOutOfBoundsException f) {
+                if(grid[0][gridWidth-1].getState())
+                    liveNeighbors++;
+            }
+            //grid[i+1][j+1]
+            try {
+                if(grid[0][column+1].getState())
+                    liveNeighbors++;
+            } catch (ArrayIndexOutOfBoundsException f) {
+                if(grid[0][0].getState())
+                    liveNeighbors++;
+            }
+        }
 
         return liveNeighbors;
     }
