@@ -21,7 +21,7 @@ public class CellManager{
     }
 
     //Checks to see how many live neighbors a cell has
-    int neighbors(int row, int column){
+    private int neighbors(int row, int column){
         int liveNeighbors = 0;
         
         //The top row
@@ -138,6 +138,7 @@ public class CellManager{
         return liveNeighbors;
     }
 
+    
     //Getters 
     public int getGridHeight(){
         return this.gridHeight;
